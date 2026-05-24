@@ -22,7 +22,7 @@ async def comment_get(
 ):
     return await get_comment_by_id(db, comment_id)
 
-@router.get("/thread/{thread_id}", response_model=CommentResponse)
+@router.get("/thread/{thread_id}", response_model=list[CommentResponse])
 async def comment_get_by_thread(
     thread_id: int,
     db: AsyncSession = Depends(get_db)
